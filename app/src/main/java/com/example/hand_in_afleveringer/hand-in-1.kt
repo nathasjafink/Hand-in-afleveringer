@@ -7,6 +7,8 @@ fun main () {
     //checkAge()
     minNumber(minNumbers)
     maxNumber(maxNumbers)
+    calculateAvg()
+    checkCprNumber()
 }
 
 /*
@@ -43,4 +45,50 @@ val maxNumbers = listOf<Int>(1,18,8)
 fun maxNumber (numbers: List<Int>) {
     val getMax = numbers.max();
     println("Max: $getMax")
+}
+
+/*
+3.
+Write a Kotlin function named calculateAverage
+that takes in a list of numbers and returns their average
+ */
+fun calculateAvg () {
+    val numbers = listOf<Double>(5.0,9.0,58.0,65.0,37.0)
+    var sum = 0.0
+
+    for (number in numbers) {
+        sum += number
+    }
+
+    val average = sum / numbers.size
+    println("The average is: $average")
+}
+
+/*
+4.
+Write a method that returns if a user has input a valid CPR number.
+A valid CPR number has:
+10 Digits.
+The first 2 digits are not above 31.
+The middle 2 digits are not above 12.
+The method returns true if the CPR number is valid, false if it is not.
+ */
+
+fun checkCprNumber () : Boolean {
+    val scanner = Scanner(System.`in`)
+    print("Please enter your CPR-Number: ")
+
+    val cprString : String = scanner.nextLine()
+    println(cprString)
+
+    val checkString : Int = cprString.length
+    if (checkString != 10 || !cprString.all { it.isDigit() }) {
+       return false
+    }
+
+    val day = cprString.substring(0,2).toIntOrNull()
+    val month = cprString.substring(2,4).toIntOrNull()
+
+    return !(day == null || month == null || day !in 1..31 || month !in 1..12)
+
 }
