@@ -8,10 +8,13 @@ fun main () {
     minNumber(minNumbers)
     maxNumber(maxNumbers)
     calculateAvg()
-    //checkCprNumber()
+    checkCprNumber()
     //multiplesProgram()
     //inputAbbreviations()
     calculateGrade(95)
+    //Exercise 6
+    val filteredList = filterWordsByLength(strings, minimumLength)
+    println(filteredList)
 }
 
 /*
@@ -191,3 +194,8 @@ that have a length greater than or equal to the specified minimum length.
 
 Use filter function and lambda expressions
  */
+val minimumLength : Int = 5
+val strings : List<String> = listOf<String>("Banana","Apple","Hey","Everything")
+fun filterWordsByLength(listOfStrings: List<String>, minLength: Int) : List<String> {
+    return  listOfStrings.filter { it.length >= minLength }
+}
