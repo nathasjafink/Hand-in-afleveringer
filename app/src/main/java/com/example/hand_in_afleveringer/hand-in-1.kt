@@ -4,9 +4,12 @@ import java.util.Scanner
 
 // Main function
 fun main () {
-    //checkAge()
+    // Exercise 1
+    checkAge()
+    // Exercise 2
     minNumber(minNumbers)
     maxNumber(maxNumbers)
+    // Exercise 3
     calculateAvg()
     // Exercise 4
     val isValidCPR = checkCprNumber()
@@ -15,10 +18,13 @@ fun main () {
     } else {
         println("Invalid Cpr-Number")
     }
-    //multiplesProgram()
-    //inputAbbreviations()
+    // Exercise 5
+    multiplesProgram()
+    // Exercise 6
+    inputAbbreviations()
+    // Exercise 7
     calculateGrade(95)
-    //Exercise 6
+    //Exercise 8
     val filteredList = filterWordsByLength(strings, minimumLength)
     println(filteredList)
 }
