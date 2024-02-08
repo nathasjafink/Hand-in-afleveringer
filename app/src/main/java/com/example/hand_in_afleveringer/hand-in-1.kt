@@ -10,7 +10,8 @@ fun main () {
     calculateAvg()
     //checkCprNumber()
     //multiplesProgram()
-    inputAbbreviations()
+    //inputAbbreviations()
+    calculateGrade(95)
 }
 
 /*
@@ -144,8 +145,49 @@ fun inputAbbreviations () {
             // Get the name together again
             val result : String = "$firstName. $middleName. $lastName"
             println(result)
+            return
         }
     }
     println("Not valid")
-    return
 }
+
+/*
+7.
+Write a program that takes a numerical grade (0-100) as input
+and prints out the corresponding american letter grade.
+Implement a function calculateGrade that takes an integer parameter representing
+the grade and returns a string representing the letter grade according to the following scale:
+
+90-100: "A"
+80-89: "B"
+70-79: "C"
+60-69: "D"
+Below 60: "F"
+ */
+
+fun calculateGrade (int: Int) {
+    if (int < 60) {
+        println("F")
+    }
+    else if (int in 60..69) {
+        println("D")
+    }
+    else if (int in 70..79) {
+        println("C")
+    }
+    else if (int in 80..89) {
+        println("B")
+    }
+    else if (int in 90..100) {
+        println("A")
+    }
+}
+
+/*
+8.
+Write a Kotlin function named filterWordsByLength that takes in a list of strings
+and a minimum length, and returns a list containing only the words
+that have a length greater than or equal to the specified minimum length.
+
+Use filter function and lambda expressions
+ */
