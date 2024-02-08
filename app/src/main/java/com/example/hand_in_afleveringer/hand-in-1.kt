@@ -9,7 +9,8 @@ fun main () {
     maxNumber(maxNumbers)
     calculateAvg()
     //checkCprNumber()
-    multiplesProgram()
+    //multiplesProgram()
+    inputAbbreviations()
 }
 
 /*
@@ -114,4 +115,37 @@ fun multiplesProgram () {
         }
         else println(i)
     }
+}
+
+/*
+6.
+Write a program that takes your full name as input and displays the abbreviations of the first
+and middle names except the last name which is displayed as it is.
+For example, if your name is Robert Brett Roser, then the output should be R.B. Roser.
+Or Benjamin Dalsgaard Hughes will be B.D. Hughes
+ */
+fun inputAbbreviations () {
+    val scanner = Scanner(System.`in`)
+    println("Enter Your Name: ")
+
+    val reader = scanner.nextLine()
+    // Checks if the returned string is empty
+    if (reader.isNotEmpty()) {
+        //Split name into an array
+        val splitName : List<String> = reader.split(" ")
+        // Checks if the split string has more than one characters
+        if (splitName.size > 1) {
+            // Get first and middle name first letter
+            val firstName = splitName[0].first()
+            val middleName : String= splitName.subList(1, splitName.size - 1).joinToString(". ") { it.first().toString() }
+
+            // Get the full last name
+            val lastName = splitName.last()
+            // Get the name together again
+            val result : String = "$firstName. $middleName. $lastName"
+            println(result)
+        }
+    }
+    println("Not valid")
+    return
 }
