@@ -8,7 +8,13 @@ fun main () {
     minNumber(minNumbers)
     maxNumber(maxNumbers)
     calculateAvg()
-    checkCprNumber()
+    // Exercise 4
+    val isValidCPR = checkCprNumber()
+    if (isValidCPR) {
+        println("Is a valid Cpr-Number")
+    } else {
+        println("Invalid Cpr-Number")
+    }
     //multiplesProgram()
     //inputAbbreviations()
     calculateGrade(95)
@@ -27,7 +33,7 @@ fun checkAge () {
     val reader = Scanner(System.`in`)
     println("Please enter your age: ")
 
-    var integer: Int = reader.nextInt()
+    val integer: Int = reader.nextInt()
 
     if (integer >= 18) {
         println("You're allowed to vote!")
@@ -95,8 +101,7 @@ fun checkCprNumber () : Boolean {
     val day = cprString.substring(0,2).toIntOrNull()
     val month = cprString.substring(2,4).toIntOrNull()
 
-    return !(day == null || month == null || day !in 1..31 || month !in 1..12)
-
+    return day in 1..31 || month in 1..12
 }
 
 /*
