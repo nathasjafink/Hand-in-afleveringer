@@ -52,6 +52,45 @@ For a parent class add 3 properties, 2 methods, and a constructor.
 For a child class add at least 1 additional property and 1 additional method.
 In the main method create a Laptop and a SmartPhone
 */
+open class Computer (storage: Int, power: Boolean, screenSize : Double) {
+// Parent class
+    var power = power
+    var storage = storage
+    var screenSize = screenSize
+
+    fun powerOnOff () {
+        power = !power
+    }
+
+    fun storageSize () {
+        if (storage in 250..600) {
+            println("$storage")
+        } else {
+            println("Buy another computer!")
+        }
+    }
+
+    fun maxAndMinScreenSize () {
+        if (screenSize < 10) {
+            println("That's not a computer, it's a phone!")
+        }
+        else if (screenSize in 12.0..17.0) {
+            println("$screenSize, That's a common screen size")
+        }
+        else {
+            println("Give an accurate screen size")
+        }
+    }
+}
+
+class Laptop : Computer() {
+// Subclass
+
+}
+
+class SmartPhone : Computer() {
+// Subclass
+}
 
 /*
 3.
