@@ -16,6 +16,17 @@ fun main () {
 
     println("Yearly salary of ${employeeOne.firstName} ${employeeOne.lastName}: ${employeeOne.yearlySalary()}")
     println("Yearly salary of ${employeeTwo.firstName} ${employeeTwo.lastName}: ${employeeTwo.yearlySalary()}")
+
+    // Exercise 2
+    val laptop = Laptop(452,true,13.1, 8)
+    laptop.storageSize()
+    laptop.checkPowerstatus()
+    laptop.addMoreRam(8)
+
+    val newSmartphone = SmartPhone(256,false,5.0,46)
+    newSmartphone.storageSize()
+    newSmartphone.checkPowerstatus()
+    newSmartphone.howMuchBatteryLeft()
 }
 
 /*
@@ -58,8 +69,8 @@ open class Computer (storage: Int, power: Boolean, screenSize : Double) {
     var storage = storage
     var screenSize = screenSize
 
-    fun powerOnOff () {
-        power = !power
+    fun checkPowerstatus () {
+        println("Power is: ${if (power) "On" else "Off"}")
     }
 
     fun storageSize () {
@@ -85,9 +96,10 @@ open class Computer (storage: Int, power: Boolean, screenSize : Double) {
 
 class Laptop (storage: Int,power: Boolean,screenSize: Double,ram: Int) : Computer(storage, power, screenSize) {
 // Subclass
-    val ram = ram
+    var ram = ram
     fun addMoreRam (ramInput : Int) {
-        ramInput + ram
+        ram += ramInput
+        println("New ram size: $ram")
     }
 
 }
@@ -96,16 +108,16 @@ class SmartPhone (storage: Int,power: Boolean,screenSize: Double, batteryLeft : 
 // Subclass
     var batteryLeft = batteryLeft
 
-    fun howmuchbatteryleft () {
+    fun howMuchBatteryLeft () {
 
         if (batteryLeft in 50..100) {
-            println("How much battery left: $batteryLeft is good")
+            println("How much battery left: $batteryLeft% is good")
         }
         else if (batteryLeft in 20..49) {
-            println("How much battery left: $batteryLeft. Might keep a charger nearby")
+            println("How much battery left: $batteryLeft%. Might keep a charger nearby")
         }
         else {
-            println("How much battery left: $batteryLeft. Charge your phone!")
+            println("How much battery left: $batteryLeft%. Charge your phone!")
         }
     }
 
