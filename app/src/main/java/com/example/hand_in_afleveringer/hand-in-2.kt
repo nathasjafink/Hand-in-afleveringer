@@ -14,8 +14,8 @@ fun main () {
     employeeOne.givingRaise(10.0)
     employeeTwo.givingRaise(10.0)
 
-    println("Yearly salary of ${employeeOne.firstName} ${employeeOne.lastName}: ${employeeOne.yearlySalary()}")
-    println("Yearly salary of ${employeeTwo.firstName} ${employeeTwo.lastName}: ${employeeTwo.yearlySalary()}")
+    println("The new yearly salary of ${employeeOne.firstName} ${employeeOne.lastName}: ${employeeOne.yearlySalary()}")
+    println("The new yearly salary of ${employeeTwo.firstName} ${employeeTwo.lastName}: ${employeeTwo.yearlySalary()}")
 
     // Exercise 2
     val laptop = Laptop(452,true,13.1, 8)
