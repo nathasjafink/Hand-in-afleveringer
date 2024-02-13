@@ -2,6 +2,13 @@ package com.example.hand_in_afleveringer
 
 // Main function
 fun main () {
+    // Exercise 1
+    val employeeOne = employee("Jonas","Smith",2500.0)
+    val employeeTwo = employee("Kathrine","Johnson",4000.0)
+
+    // Display yearly salary
+    println("Yearly salary of ${employeeOne.firstName} ${employeeOne.lastName}: ${employeeOne.yearlySalary()}")
+    println("Yearly salary of ${employeeTwo.firstName} ${employeeTwo.lastName}: ${employeeTwo.yearlySalary()}")
 
 }
 
@@ -16,6 +23,21 @@ If the monthly salary is not positive, set it to 0.0.
 Create two Employee objects and display each object’s yearly salary.
 Then give each Employee a 10% raise and display each Employee’s yearly salary again.
 */
+class employee (firstName : String, lastName : String, monthlySalary : Double) {
+    var firstName : String = firstName
+    var lastName : String = lastName
+    var monthlySalary : Double = if (monthlySalary > 0) monthlySalary else 0.0
+        private set
+
+    fun yearlySalary () : Double {
+        return monthlySalary * 12
+    }
+
+    fun givingRaise (percentage : Double) {
+        monthlySalary += monthlySalary * (percentage / 100)
+    }
+
+}
 
 /*
 2.
@@ -24,6 +46,7 @@ For a parent class add 3 properties, 2 methods, and a constructor.
 For a child class add at least 1 additional property and 1 additional method.
 In the main method create a Laptop and a SmartPhone
 */
+
 /*
 3.
 Create a base class Product with attributes like name, price, and quantity and a function identifyProductCategory. Subclass it to create specific product types like Shoe, T-shirt, and Book. Override the function such that:
