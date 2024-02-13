@@ -3,13 +3,19 @@ package com.example.hand_in_afleveringer
 // Main function
 fun main () {
     // Exercise 1
-    val employeeOne = employee("Jonas","Smith",2500.0)
-    val employeeTwo = employee("Kathrine","Johnson",4000.0)
+    val employeeOne = Employee("Jonas","Smith",2500.0)
+    val employeeTwo = Employee("Kathrine","Johnson",4000.0)
 
     // Display yearly salary
     println("Yearly salary of ${employeeOne.firstName} ${employeeOne.lastName}: ${employeeOne.yearlySalary()}")
     println("Yearly salary of ${employeeTwo.firstName} ${employeeTwo.lastName}: ${employeeTwo.yearlySalary()}")
 
+    // Give the employees 10% raise and display yearly salary
+    employeeOne.givingRaise(10.0)
+    employeeTwo.givingRaise(10.0)
+
+    println("Yearly salary of ${employeeOne.firstName} ${employeeOne.lastName}: ${employeeOne.yearlySalary()}")
+    println("Yearly salary of ${employeeTwo.firstName} ${employeeTwo.lastName}: ${employeeTwo.yearlySalary()}")
 }
 
 /*
@@ -23,7 +29,7 @@ If the monthly salary is not positive, set it to 0.0.
 Create two Employee objects and display each object’s yearly salary.
 Then give each Employee a 10% raise and display each Employee’s yearly salary again.
 */
-class employee (firstName : String, lastName : String, monthlySalary : Double) {
+class Employee (firstName : String, lastName : String, monthlySalary : Double) {
     var firstName : String = firstName
     var lastName : String = lastName
     var monthlySalary : Double = if (monthlySalary > 0) monthlySalary else 0.0
