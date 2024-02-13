@@ -83,13 +83,18 @@ open class Computer (storage: Int, power: Boolean, screenSize : Double) {
     }
 }
 
-class Laptop : Computer() {
+class Laptop (storage: Int,power: Boolean,screenSize: Double,ram: Int) : Computer(storage, power, screenSize) {
 // Subclass
+    val ram : Int = ram
+    fun addMoreRam (ramInput : Int) {
+        ramInput + ram
+    }
 
 }
 
-class SmartPhone : Computer() {
+class SmartPhone (storage: Int,power: Boolean,screenSize: Double, batteryLife : Int) : Computer(storage, power, screenSize) {
 // Subclass
+
 }
 
 /*
