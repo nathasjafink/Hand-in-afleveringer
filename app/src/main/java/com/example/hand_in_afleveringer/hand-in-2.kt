@@ -85,15 +85,29 @@ open class Computer (storage: Int, power: Boolean, screenSize : Double) {
 
 class Laptop (storage: Int,power: Boolean,screenSize: Double,ram: Int) : Computer(storage, power, screenSize) {
 // Subclass
-    val ram : Int = ram
+    val ram = ram
     fun addMoreRam (ramInput : Int) {
         ramInput + ram
     }
 
 }
 
-class SmartPhone (storage: Int,power: Boolean,screenSize: Double, batteryLife : Int) : Computer(storage, power, screenSize) {
+class SmartPhone (storage: Int,power: Boolean,screenSize: Double, batteryLeft : Int) : Computer(storage, power, screenSize) {
 // Subclass
+    var batteryLeft = batteryLeft
+
+    fun howmuchbatteryleft () {
+
+        if (batteryLeft in 50..100) {
+            println("How much battery left: $batteryLeft is good")
+        }
+        else if (batteryLeft in 20..49) {
+            println("How much battery left: $batteryLeft. Might keep a charger nearby")
+        }
+        else {
+            println("How much battery left: $batteryLeft. Charge your phone!")
+        }
+    }
 
 }
 
