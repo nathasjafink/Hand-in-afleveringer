@@ -35,6 +35,20 @@ fun main () {
     productTshirt.identifyProductCategory()
     val productBook = Book("Riverdale", 250,10)
     productBook.identifyProductCategory()
+
+    // Exercise 4
+    //Circle
+    val cirkel = Circle(3.14,2.0,"red",false)
+    println(cirkel.calculatePermeter())
+    println(cirkel.calculateArea())
+    // Retangle
+    val retankel = Retangle(5.0,10.0,"Blue",true)
+    println(retankel.calculatePermeter())
+    println(retankel.calculateArea())
+    // Triangle
+    val trekant = Triangle(5.0,3.5,7.0,"Purple", false)
+    println(trekant.calculatePermeter())
+    println(trekant.calculateArea())
 }
 
 /*
@@ -176,3 +190,40 @@ calculatePermeter
 calculateArea
 The functions will return the permeter or area of the shape.
  */
+
+abstract class Shape (val color: String, val isTransparent: Boolean) {
+    abstract fun calculatePermeter (): Double
+
+    abstract fun calculateArea (): Double
+}
+
+class Circle (private val pi: Double, private val radius: Double, color: String, isTransparent : Boolean ) : Shape(color, isTransparent) {
+
+    override fun calculatePermeter(): Double {
+        return 2 * radius * pi
+    }
+
+    override fun calculateArea(): Double {
+        return pi * radius * radius
+    }
+}
+
+class Retangle (private val length : Double, private val width : Double, color: String, isTransparent: Boolean) : Shape(color, isTransparent) {
+    override fun calculatePermeter(): Double {
+        return 2 * (length + width)
+    }
+
+    override fun calculateArea(): Double {
+        return length * width
+    }
+}
+
+class Triangle (private val sideA : Double, private val sideB : Double, private val sideC : Double, color: String, isTransparent: Boolean) : Shape(color, isTransparent) {
+    override fun calculatePermeter(): Double {
+        return sideA + sideB + sideC
+    }
+
+    override fun calculateArea(): Double {
+        return 1/2 * sideA * sideB
+    }
+}
