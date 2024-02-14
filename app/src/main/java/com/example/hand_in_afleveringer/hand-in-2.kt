@@ -27,6 +27,14 @@ fun main () {
     newSmartphone.storageSize()
     newSmartphone.checkPowerstatus()
     newSmartphone.howMuchBatteryLeft()
+
+    // Exercise 3
+    val productOne = Shoe("Nike",250,5)
+    productOne.identifyProductCategory()
+    val productTshirt = Tshirt("Blue T-shirt",20,54)
+    productTshirt.identifyProductCategory()
+    val productBook = Book("Riverdale", 250,10)
+    productBook.identifyProductCategory()
 }
 
 /*
@@ -125,12 +133,35 @@ class SmartPhone (storage: Int,power: Boolean,screenSize: Double, batteryLeft : 
 
 /*
 3.
-Create a base class Product with attributes like name, price, and quantity and a function identifyProductCategory. Subclass it to create specific product types like Shoe, T-shirt, and Book. Override the function such that:
+Create a base class Product with attributes like name, price, and quantity and a function identifyProductCategory.
+Subclass it to create specific product types like Shoe, T-shirt, and Book. Override the function such that:
 The shoe outputs "I am a shoe" .
 The T-shirt outputs "I am a T-shirt"
 The book outputs "I am a book"
 */
+open class Product (val name : String, val price : Int, val quantity : Int) {
+    open fun identifyProductCategory () {
+        println("I'm a product")
+    }
+}
 
+class Shoe (name: String, price: Int, quantity: Int ) : Product (name, price, quantity) {
+    override fun identifyProductCategory () {
+        println("I am a shoe")
+    }
+}
+
+class Tshirt (name: String,price: Int,quantity: Int) : Product(name, price, quantity) {
+    override fun identifyProductCategory () {
+        println("I am a t-shirt")
+    }
+}
+
+class Book (name: String,price: Int,quantity: Int) : Product(name, price, quantity) {
+    override fun identifyProductCategory () {
+        println("I am a book")
+    }
+}
 /*
 4.
 Create 3 classes Circle, Rectangle & Triangle with a parent class: Shape.
