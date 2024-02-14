@@ -224,6 +224,6 @@ class Triangle (private val sideA : Double, private val sideB : Double, private 
     }
 
     override fun calculateArea(): Double {
-        return 1/2 * sideA * sideB
+        return 0.5 * sideA * sideB
     }
 }
