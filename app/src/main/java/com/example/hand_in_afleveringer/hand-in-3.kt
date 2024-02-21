@@ -126,6 +126,12 @@ interface Vehicle {
     applyBrakes(int a);
 }
 */
+
+internal interface Vehicle {
+    fun changeGear(a: Int)
+    fun speedUp(a: Int)
+    fun applyBrakes(a: Int)
+}
 /*
 4.
 Write a class: RedditPost
