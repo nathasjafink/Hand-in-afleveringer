@@ -2,7 +2,7 @@ package com.example.hand_in_afleveringer
 // Main Function
 fun main () {
     // Exercise 1
-    var arrayList = arrayListOf<Article>(
+    val arrayList = arrayListOf<Article>(
         Article("Kotlin for Beginners", "John Doe"),
         Article("Advanced Kotlin Techniques", "Jane Smith"),
         Article("Understanding Coroutines", "Alice Johnson"),
