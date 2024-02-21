@@ -11,6 +11,14 @@ fun main () {
         )
     println(arrayList)
 
+    // Exercise 2
+    val fastFoods : List<Fastfood> = listOf(Sandwich(),Pizza(),Cheeseburger())
+    Cheeseburger().removeItem("Tomato")
+    fastFoods.forEach { food ->
+        food.prepare()
+        food.serve()
+        println("Sandwich price: ${Sandwich().price}, Pizza price: ${Pizza().price}, Cheeseburger price: ${Cheeseburger().price}")
+    }
 }
 
 /*
@@ -29,7 +37,86 @@ class Article (private val author : String, private val title : String) {
 Create an interface called FastFood (with appropriate methods) and create a Sandwich class, a Pizza class and a class you decide that implements the FastFood interface.
 Add some different Fastfood objects to an array. Now iterate through that array and use some of the methods you have created above.
 */
+interface Fastfood {
+    fun prepare()
+    fun serve()
+    var price : Double
+    var ingredients : MutableList<String>
+    fun removeItem(productBeRemoved : String)
+}
 
+class Sandwich  : Fastfood {
+    override var price: Double = 45.00
+    override var ingredients: MutableList<String> = mutableListOf("Bread", "Cheese", "Ham", "Tomato")
+
+    override fun prepare() {
+        return println("Sandwich is being prepared")
+    }
+
+    override fun serve() {
+        return println("Sandwich is ready to be served")
+    }
+
+    override fun removeItem(productBeRemoved: String) {
+        val removeIngredients = ingredients.remove(productBeRemoved)
+        if (removeIngredients) {
+            println("$productBeRemoved was removed")
+        } else {
+            println("$productBeRemoved was not removed")
+        }
+    }
+
+}
+
+class Pizza : Fastfood {
+
+    override var price: Double = 80.00
+    override var ingredients: MutableList<String> = mutableListOf("Pizza Dough", "Tomato Sauce", "Cheese", "Pepperoni")
+    override fun prepare() {
+        return println("Pizza is being prepared")
+    }
+
+    override fun serve() {
+        return println("Pizza is ready to be served")
+    }
+
+
+
+    override fun removeItem(productBeRemoved: String) {
+        val removeIngredients = ingredients.remove(productBeRemoved)
+        if (removeIngredients) {
+            println("$productBeRemoved was removed")
+        } else {
+            println("$productBeRemoved was not removed")
+        }
+    }
+
+
+}
+
+class Cheeseburger : Fastfood {
+    override var price: Double = 60.00
+    override var ingredients: MutableList<String> = mutableListOf("Bun", "Beef Patty", "Cheese", "Lettuce", "Tomato")
+    override fun prepare() {
+        return println("Chesseburger is being prepared")
+    }
+
+    override fun serve() {
+        return println("Chesseburger is ready to be served")
+    }
+
+
+    override fun removeItem(productBeRemoved: String) {
+        val removeIngredients = ingredients.remove(productBeRemoved)
+        if (removeIngredients) {
+            println("$productBeRemoved was removed")
+        } else {
+            println("$productBeRemoved was not removed")
+        }
+    }
+
+
+}
 /*
 3.
 Create a class that implements the following interface. Now create two objects using the class created
