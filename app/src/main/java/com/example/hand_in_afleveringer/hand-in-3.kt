@@ -1,6 +1,15 @@
 package com.example.hand_in_afleveringer
 // Main Function
-fun Main () {
+fun main () {
+    // Exercise 1
+    var arrayList = arrayListOf<Article>(
+        Article("Kotlin for Beginners", "John Doe"),
+        Article("Advanced Kotlin Techniques", "Jane Smith"),
+        Article("Understanding Coroutines", "Alice Johnson"),
+        Article("Exploring Kotlin DSL", "Bob Brown"),
+        Article("Kotlin Multiplatform in Action", "Chris Green")
+        )
+    println(arrayList)
 
 }
 
@@ -10,6 +19,11 @@ Write a class: Article
 An article has an author and a title
 Create 5 articles, add them into an ArrayList and print them by overriding the .toString() method
 */
+class Article (val author : String, val title : String) {
+    override fun toString(): String {
+        return "Article Title: \"$title\" by Author: $author"
+    }
+}
 /*
 2.
 Create an interface called FastFood (with appropriate methods) and create a Sandwich class, a Pizza class and a class you decide that implements the FastFood interface.
