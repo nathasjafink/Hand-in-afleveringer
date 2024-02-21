@@ -19,7 +19,7 @@ Write a class: Article
 An article has an author and a title
 Create 5 articles, add them into an ArrayList and print them by overriding the .toString() method
 */
-class Article (val author : String, val title : String) {
+class Article (private val author : String, private val title : String) {
     override fun toString(): String {
         return "Article Title: \"$title\" by Author: $author"
     }
@@ -29,6 +29,7 @@ class Article (val author : String, val title : String) {
 Create an interface called FastFood (with appropriate methods) and create a Sandwich class, a Pizza class and a class you decide that implements the FastFood interface.
 Add some different Fastfood objects to an array. Now iterate through that array and use some of the methods you have created above.
 */
+
 /*
 3.
 Create a class that implements the following interface. Now create two objects using the class created
