@@ -19,6 +19,8 @@ fun main () {
         food.serve()
         println("Sandwich price: ${Sandwich().price}, Pizza price: ${Pizza().price}, Cheeseburger price: ${Cheeseburger().price}")
     }
+    // Exercise 3
+
 }
 
 /*
@@ -131,6 +133,38 @@ internal interface Vehicle {
     fun changeGear(a: Int)
     fun speedUp(a: Int)
     fun applyBrakes(a: Int)
+}
+
+class Car : Vehicle {
+    override fun changeGear(a: Int) {
+        if (a == 1) {
+            println("You're in first gear")
+        }
+        else if (a == 2) {
+            println("You're in second gear")
+        }
+        else if (a == 3) {
+            println("You're in third gear")
+        }
+        else if (a == 4) {
+            println("You're in fourth gear")
+        }
+        else if (a in 5..6) {
+            println("You're in the highest gear")
+        }
+        else {
+            println("There is not that many gears in a car!")
+        }
+    }
+
+    override fun speedUp(a: Int) {
+        return println("This is your speed: $a")
+    }
+
+    override fun applyBrakes(a: Int) {
+        return println("Breaking enable")
+    }
+
 }
 /*
 4.
