@@ -201,6 +201,14 @@ class RedditPost (
 
 }
 
+class RedditFrontPage (
+    var listOfPosts : MutableList<String>
+) {
+    fun removePostFromList () {
+
+    }
+}
+
 /*
 5.
 Write a program that takes a list of words as input and prints the frequency of each word.
