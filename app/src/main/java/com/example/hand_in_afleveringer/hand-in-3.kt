@@ -25,6 +25,20 @@ fun main () {
     car.speedUp(60)
     car.applyBrakes(110)
 
+    // Exercise 4
+    val redditFrontPage = RedditFrontPage()
+
+    redditFrontPage.addPostToList(RedditPost(22022024,"JaneDoe","Exploring Kotlin"))
+    redditFrontPage.addPostToList(RedditPost(26052023,"JohnSvendson","First Ever Post"))
+
+    // Remove Post By Index
+    redditFrontPage.removePostFromList(1)
+
+    // Display Posts sorted by highest to lowest
+    redditFrontPage.sortedByVotes().forEach {
+        println("Title: ${it.getTitle()}, Author: ${it.getAuthor()}, Date posted: ${it.getDate()}")
+    }
+
 }
 
 /*
@@ -195,7 +209,7 @@ A method in RedditFrontPage deletes a RedditPost from the list, by its index num
 class RedditPost (
     private val date: Long,
     private val author : String,
-    private val title : String) : Comparable<RedditPost> {
+    private val title : String) {
     private var upvotes : Int = 1
     private var downvotes : Int = 1
 
@@ -214,16 +228,31 @@ class RedditPost (
         downvotes = value
     }
 
-    override fun compareTo(other: RedditPost): Int = this.getBalance().compareTo(other.getBalance())
+    fun upvotes() = {upvotes++}
+    fun downvotes()= {downvotes++}
 
 
 }
 
-class RedditFrontPage (
-    var listOfPosts : MutableList<String>
-) {
-    fun removePostFromList () {
+class RedditFrontPage {
+    private var listOfPosts : MutableList<RedditPost> = mutableListOf()
 
+    fun addPostToList (post: RedditPost) {
+        listOfPosts.add(post)
+    }
+
+    fun removePostFromList (index : Int) {
+        if (index >= 0) {
+            listOfPosts.removeAt(index)
+            println("Post at index $index was removed")
+        } else {
+            println("Error removing post")
+        }
+
+    }
+
+    fun sortedByVotes () : List<RedditPost> {
+        return listOfPosts.sortedByDescending { it.getBalance() }
     }
 }
 
