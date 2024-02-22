@@ -194,13 +194,28 @@ A method in RedditFrontPage deletes a RedditPost from the list, by its index num
 */
 class RedditPost (
     private val date: Long,
-    val author : String,
-    val title : String) {
+    private val author : String,
+    private val title : String) : Comparable<RedditPost> {
     private var upvotes : Int = 1
     private var downvotes : Int = 1
-    fun generateARedditPost () {
-        date
+
+    fun getDate () : Long = date
+    fun getAuthor () : String = author
+    fun getTitle () : String = title
+    fun getUpVotes () : Int = upvotes
+    fun getDownVotes () : Int = downvotes
+    fun getBalance () : Int = upvotes - downvotes
+
+    fun setUpVotes(value : Int) {
+        upvotes = value
     }
+
+    fun setDownVotes(value: Int) {
+        downvotes = value
+    }
+
+    override fun compareTo(other: RedditPost): Int = this.getBalance().compareTo(other.getBalance())
+
 
 }
 
