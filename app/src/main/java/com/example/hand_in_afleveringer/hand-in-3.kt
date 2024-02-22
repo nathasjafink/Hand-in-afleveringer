@@ -28,8 +28,13 @@ fun main () {
     // Exercise 4
     val redditFrontPage = RedditFrontPage()
 
-    redditFrontPage.addPostToList(RedditPost(22022024,"JaneDoe","Exploring Kotlin"))
-    redditFrontPage.addPostToList(RedditPost(26052023,"JohnSvendson","First Ever Post"))
+
+    // Add posts to list
+    redditFrontPage.addPostToList(RedditPost("JaneDoe", "Exploring Kotlin", "2024-02-22"))
+    redditFrontPage.addPostToList(RedditPost("JohnSvendson", "First Ever Post", "2023-05-26"))
+    redditFrontPage.addPostToList(RedditPost("AliceSmith", "Kotlin vs Java", "2024-01-15"))
+    redditFrontPage.addPostToList(RedditPost("BobCoder", "Building Android Apps", "2023-11-10"))
+    redditFrontPage.addPostToList(RedditPost("EveProgrammer", "Functional Programming in Kotlin", "2023-09-05"))
 
     // Remove Post By Index
     redditFrontPage.removePostFromList(1)
@@ -206,14 +211,14 @@ The RedditFrontPage has:
 A List of all RedditPosts
 A method in RedditFrontPage deletes a RedditPost from the list, by its index number
 */
-class RedditPost (
-    private val date: Long,
-    private val author : String,
-    private val title : String) {
+class RedditPost(
+    private val author: String,
+    private val title: String,
+    private val date: String) {
     private var upvotes : Int = 1
     private var downvotes : Int = 1
 
-    fun getDate () : Long = date
+    fun getDate () : String = date
     fun getAuthor () : String = author
     fun getTitle () : String = title
     fun getUpVotes () : Int = upvotes
