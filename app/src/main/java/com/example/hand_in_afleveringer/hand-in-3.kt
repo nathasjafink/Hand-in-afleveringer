@@ -193,11 +193,14 @@ A List of all RedditPosts
 A method in RedditFrontPage deletes a RedditPost from the list, by its index number
 */
 class RedditPost (
-    val date: Long,
+    private val date: Long,
     val author : String,
-    val title : String,
-    var upvotes : Int,
-    var downvotes : Int  ) {
+    val title : String) {
+    private var upvotes : Int = 1
+    private var downvotes : Int = 1
+    fun generateARedditPost () {
+        date
+    }
 
 }
 
