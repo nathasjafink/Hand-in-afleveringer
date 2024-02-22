@@ -44,6 +44,10 @@ fun main () {
         println("Title: ${it.getTitle()}, Author: ${it.getAuthor()}, Date posted: ${it.getDate()}")
     }
 
+    // Exercise 5
+    val wordsInList = listOf("apple", "banana", "apple", "orange", "banana", "apple", "orange", "banana", "apple","banana", "apple", "orange", "banana","banana", "apple", "orange", "apple", "orange", "banana")
+    printFrequencyofEachWord(wordsInList,"Orange")
+
 }
 
 /*
@@ -266,3 +270,14 @@ class RedditFrontPage {
 Write a program that takes a list of words as input and prints the frequency of each word.
 Hint: Use a MutableMap
  */
+
+fun printFrequencyofEachWord (input : List<String>, word : String) {
+    var frequency = 0
+
+    for (i in input.indices) {
+        if (word.equals(input[i], ignoreCase = true)) {
+            ++frequency
+        }
+    }
+    println("Frequency between the word: $word is $frequency")
+}
