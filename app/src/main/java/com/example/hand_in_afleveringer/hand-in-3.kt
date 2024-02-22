@@ -20,6 +20,10 @@ fun main () {
         println("Sandwich price: ${Sandwich().price}, Pizza price: ${Pizza().price}, Cheeseburger price: ${Cheeseburger().price}")
     }
     // Exercise 3
+    val car = Car()
+    car.changeGear(4)
+    car.speedUp(60)
+    car.applyBrakes(110)
 
 }
 
@@ -165,6 +169,8 @@ class Car : Vehicle {
         return println("Breaking enable")
     }
 
+
+
 }
 /*
 4.
@@ -185,8 +191,15 @@ Write a class: RedditFrontPage
 The RedditFrontPage has:
 A List of all RedditPosts
 A method in RedditFrontPage deletes a RedditPost from the list, by its index number
+*/
+class RedditPost (
+    val date: Long,
+    val author : String,
+    val title : String,
+    var upvotes : Int,
+    var downvotes : Int  ) {
 
- */
+}
 
 /*
 5.
